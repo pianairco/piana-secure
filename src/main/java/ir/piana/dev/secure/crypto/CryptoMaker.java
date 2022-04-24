@@ -1,8 +1,10 @@
 package ir.piana.dev.secure.crypto;
 
 import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,14 +40,30 @@ public class CryptoMaker {
     public static byte[] encrypt(
             byte[] raw,
             Key secretKey,
+            CryptoAttribute cryptoAttribute, IvParameterSpec ivParameterSpec)
+            throws Exception {
+        initialize();
+        Cipher cipher =
+                cipherMap.get(
+                        cryptoAttribute.getName());
+        if(ivParameterSpec != null)
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivParameterSpec);
+        else
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+        return cipher.doFinal(raw);
+    }
+
+    public static IvParameterSpec createZeroInitialVector(
             CryptoAttribute cryptoAttribute)
             throws Exception {
         initialize();
         Cipher cipher =
                 cipherMap.get(
                         cryptoAttribute.getName());
-        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-        return cipher.doFinal(raw);
+        byte[] iv = new byte[cipher.getBlockSize()];
+        IvParameterSpec ivParameterSpec = new IvParameterSpec(iv);
+
+        return ivParameterSpec;
     }
 
     public static byte[] decrypt(

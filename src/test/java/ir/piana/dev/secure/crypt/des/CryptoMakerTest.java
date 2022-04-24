@@ -1,9 +1,11 @@
 package ir.piana.dev.secure.crypt.des;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import ir.piana.dev.secure.crypto.CryptoAttribute;
 import ir.piana.dev.secure.crypto.CryptoMaker;
 import ir.piana.dev.secure.key.SecretKeyAlgorithm;
 import ir.piana.dev.secure.key.SecretKeyMaker;
+import ir.piana.dev.secure.util.HexConverter;
 import org.apache.commons.codec.binary.Hex;
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,7 +23,7 @@ public class CryptoMakerTest {
         byte[] encrypted = CryptoMaker.encrypt(
                 "Hello".getBytes("UTF-8"),
                 secretKey,
-                CryptoAttribute.DES_ECB_PKCS_5_PADDING);
+                CryptoAttribute.DES_ECB_PKCS_5_PADDING, null);
 //        System.out.println(Hex.encodeHexString(encrypted));
         byte[] decrypted = CryptoMaker.decrypt(encrypted,
                 secretKey,

@@ -32,7 +32,7 @@ public class CryptoRsaTest {
             throws Exception {
         byte[] encrypted = CryptoMaker.encrypt(rawBytes,
                 keyPair.getPublic(),
-                CryptoAttribute.RSA);
+                CryptoAttribute.RSA, null);
         byte[] decrypted = CryptoMaker.decrypt(
                 encrypted,
                 keyPair.getPrivate(),

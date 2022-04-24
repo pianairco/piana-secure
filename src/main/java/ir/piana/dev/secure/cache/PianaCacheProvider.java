@@ -24,7 +24,7 @@ public class PianaCacheProvider<K, V> {
     }
 
     private PianaCacheProvider(
-            PianaCacheLoader pianaCacheLoader,
+            final PianaCacheLoader pianaCacheLoader,
             int maxSize,
             int seconds) {
         loadingCache = CacheBuilder.newBuilder()

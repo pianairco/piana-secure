@@ -4,6 +4,7 @@ package ir.piana.dev.secure.crypto;
  * @author Mohammad Rahmati, 4/16/2017 4:27 PM
  */
 public enum CryptoPadding {
+    NO_PADDING("NoPadding", "NoPadding"),
     PKCS_5_PADDING("pkcs5padding", "PKCS5PADDING"),
     PKCS_7_PADDING("pkcs7padding", "PKCS5PADDING");
 
