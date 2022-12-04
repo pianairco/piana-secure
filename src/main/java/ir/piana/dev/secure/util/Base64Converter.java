@@ -14,6 +14,10 @@ public class Base64Converter {
         return Base64.decodeBase64(base64);
     }
 
+    public static String fromBase64(String base64) {
+        return new String(Base64.decodeBase64(base64));
+    }
+
     public static byte[] toBase64Bytes(byte[] row) {
         return Base64.encodeBase64(row);
     }

@@ -9,9 +9,7 @@ import java.util.Map;
  * @author Mohammad Rahmati, 4/15/2017 2:45 PM
  */
 public class SecureRandomMaker {
-    private static final
-    Map<String, SecureRandom> secureRandomMap
-            = new HashMap<>();
+    private static final Map<String, SecureRandom> secureRandomMap = new HashMap<>();
     private static boolean initialized = false;
 
     private static synchronized void initialize()
@@ -151,7 +149,7 @@ public class SecureRandomMaker {
         return secureRandom.nextDouble();
     }
 
-    public static float makefloat(
+    public static float makeFloat(
             SecureRandomType secureRandomType
     ) throws Exception {
         initialize();

@@ -8,7 +8,7 @@ public enum SecureRandomType {
 
     private String name;
 
-    private SecureRandomType(String name) {
+    SecureRandomType(String name) {
         this.name = name;
     }
 

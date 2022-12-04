@@ -7,8 +7,8 @@ import org.apache.commons.codec.binary.Hex;
  * @author Mohammad Rahmati, 4/24/2017 3:35 PM
  */
 public class HexConverter {
-    public static String toHexString(byte[] raw) {
-        return Hex.encodeHexString(raw);
+    public static String toHexString(byte[] raw, boolean... toLowerCase) {
+        return Hex.encodeHexString(raw, toLowerCase.length == 0 ? true : toLowerCase[0]);
     }
 
     public static byte[] fromHexString(String hex)

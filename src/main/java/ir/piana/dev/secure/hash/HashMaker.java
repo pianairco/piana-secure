@@ -2,8 +2,6 @@ package ir.piana.dev.secure.hash;
 
 import ir.piana.dev.secure.util.Base64Converter;
 import ir.piana.dev.secure.util.HexConverter;
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.codec.binary.Hex;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
